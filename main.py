@@ -1,6 +1,6 @@
 import sys
-from minesweeper import Minesweeper
-from minesweeper import GameState
+from ms import Ms
+from ms import Sate
 from calc import Calc
 
 def main(l):
