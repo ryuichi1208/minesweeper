@@ -42,9 +42,24 @@ class Minesweeper():
         self.nb = nbombs
         self.grid = make_grid(width, height, nbombs)
 
+    def reveal_all_cells_from(self, x, y):
+        width = self.w
+        height = self.h
+        cel = self.get_cell(x,y)
+        if cel.number_of_bombs_in_neighborhood() != 0:
+            cel.reveal()
+        elif cel.is_bomb():
+            cel.reveal()
+        else:
+            listeVoisins = neighborhood(x, y, width, height)
+            for i in range(0,len(listeVoisins)) :
+                cel2=self.get_cell(listeVoisins[i][0],listeVoisins[i][1])
+                if cel2.is_revealed()==False:
+                    cel2.reveal()
+                    self.reveal_all_cells_from(listeVoisins[i][0], listeVoisins[i][1])]
+     
     def get_height(self):
         return self.h
-
 
     def get_width(self):
         return self.w
@@ -75,27 +90,11 @@ class Minesweeper():
                 break
 
         if n == nb_cases:
-            return GameState.winning
+            return GameState.win
         elif state == 2:
-            return GameState.losing
+            return GameState.los
         else:
-            return GameState.unfinished
-
-    def reveal_all_cells_from(self, x, y):
-        width = self.w
-        height = self.h
-        cel = self.get_cell(x,y)
-        if cel.number_of_bombs_in_neighborhood() != 0:
-            cel.reveal()
-        elif cel.is_bomb():
-            cel.reveal()
-        else:
-            listeVoisins = neighborhood(x, y, width, height)
-            for i in range(0,len(listeVoisins)) :
-                cel2=self.get_cell(listeVoisins[i][0],listeVoisins[i][1])
-                if cel2.is_revealed()==False:
-                    cel2.reveal()
-                    self.reveal_all_cells_from(listeVoisins[i][0], listeVoisins[i][1])
+            return GameState.unf
 
 if __name__ == '__main__':
     import doctest
