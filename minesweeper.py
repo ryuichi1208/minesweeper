@@ -6,9 +6,9 @@ from enum import Enum
 from cell import Cell
 
 class GameState(Enum):
-    winning = 1
-    losing = 2
-    unfinished = 3
+    win = 1
+    los = 2
+    unf = 3
 
 def neighborhood(x, y, width, height):
     neighbors = []
