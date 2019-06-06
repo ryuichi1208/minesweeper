@@ -1,4 +1,7 @@
-class Calk():
+#!/usr/bin/python3.7
+# -*- coding: utf-8 -*-
+
+class Cell():
 
     def __init__(self):
         self.bomb = False
