@@ -10,15 +10,6 @@ class GameState(Enum):
     los = 2
     unf = 3
 
-def neighborhood(x, y, width, height):
-    neighbors = []
-    for i in range(x-1, x+2) :
-        for j in range(y-1, y+2) :
-            if 0<=i<width and 0<=j<height  and not (i,j)==(x,y):
-                neighbors = neighbors + [ (i,j) ]
-    return neighbors
-
-
 def make_grid(width, height, nbombs):
     assert 0 < width, 'width must be a positive integer'
     assert 0 < height, 'height must be a positive integer'
@@ -95,6 +86,14 @@ class Minesweeper():
             return GameState.los
         else:
             return GameState.unf
+
+def neighborhood(x, y, width, height):
+    neighbors = []
+    for i in range(x-1, x+2) :
+        for j in range(y-1, y+2) :
+            if 0<=i<width and 0<=j<height  and not (i,j)==(x,y):
+                neighbors = neighbors + [ (i,j) ]
+    return neighbors
 
 if __name__ == '__main__':
     import doctest
