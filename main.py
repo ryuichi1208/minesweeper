@@ -60,7 +60,7 @@ while game.get_state() == GameState.unfinished :
             print('  {:s}|'.format(v), end='')
         print('\n','  +', '---+'*width, sep='')
 
-if game.get_state() == GameState.winning :
+if game.get_state() == GameState.win :
     print("win")
-elif game.get_state() == GameState.losing :
+elif game.get_state() == GameState.los :
     print("lose")
