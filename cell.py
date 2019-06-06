@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 class Cell():
-
     def __init__(self):
         self.bomb = False
         self.hypothetic = False
@@ -11,7 +10,6 @@ class Cell():
 
     def is_revealed(self):
         return self.revealed
-
 
     def reveal(self):
         self.revealed = True
@@ -33,11 +31,11 @@ class Cell():
 
     def number_of_bombs_in_neighborhood(self):
         return self.nb_bombs_neighborhood
+
     def incr_number_of_bombs_in_neighborhood(self):
-
         self.nb_bombs_neighborhood += 1
-    def __str__(self):
 
+    def __str__(self):
         if self.hypothetic==True:
             return "?"
         elif self.bomb==True:
