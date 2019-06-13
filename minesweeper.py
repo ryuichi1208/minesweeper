@@ -47,8 +47,7 @@ class Minesweeper():
                 cel2=self.get_cell(listeVoisins[i][0],listeVoisins[i][1])
                 if cel2.is_revealed()==False:
                     cel2.reveal()
-                    self.reveal_all_cells_from(listeVoisins[i][0], listeVoisins[i][1])]
-     
+                    self.reveal_all_cells_from(listeVoisins[i][0], listeVoisins[i][1])
     def get_height(self):
         return self.h
 
